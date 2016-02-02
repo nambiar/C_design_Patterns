@@ -1,7 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="Design_Patterns" InternalType="Console">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+    <Plugin Name="CMakePlugin">
+      <![CDATA[[{
+  "name": "Debug",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }]]]>
+    </Plugin>
+  </Plugins>
   <Description/>
   <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="main.c"/>
+    <VirtualDirectory Name="All_States">
+      <File Name="State_Pattern_ATM_All_States.c" ExcludeProjConfig=""/>
+      <File Name="State_Pattern_ATM_All_States.h" ExcludeProjConfig=""/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="State_Watch">
+      <File Name="State_Pattern_AtmStateWatch.c"/>
+      <File Name="State_Pattern_AtmStateWatch.h"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="ATM">
+      <File Name="State_Pattern_ATM.c" ExcludeProjConfig=""/>
+      <File Name="State_Pattern_ATM.h" ExcludeProjConfig=""/>
+    </VirtualDirectory>
+    <File Name="State_Pattern_ATM_States.h" ExcludeProjConfig="Debug"/>
+  </VirtualDirectory>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -13,7 +46,7 @@
       <ResourceCompiler Options=""/>
     </GlobalSettings>
     <Configuration Name="Debug" CompilerType="GCC" DebuggerType="GNU gdb debugger" Type="Executable" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
-      <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+      <Compiler Options="-g;-O0;-Wall" C_Options="-g;-O0;-Wall" Assembler="" Required="yes" PreCompiledHeader="/home/sainath-atmel/Documents/C_Patterns/Design_Patterns_states/State_Pattern_AtmStateWatch.h" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
         <IncludePath Value="."/>
       </Compiler>
       <Linker Options="" Required="yes"/>
@@ -90,13 +123,4 @@
       </Completion>
     </Configuration>
   </Settings>
-  <VirtualDirectory Name="src">
-    <File Name="main.c"/>
-    <File Name="State_Pattern_ATM.h"/>
-    <File Name="State_Pattern_ATM_States.h"/>
-    <File Name="State_Pattern_AtmStateWatch.h"/>
-    <File Name="State_Pattern_AtmSateWatch.c"/>
-    <File Name="State_Patter_ATM_All_States.h"/>
-    <File Name="State_Patter_ATM_All_States.c"/>
-  </VirtualDirectory>
 </CodeLite_Project>

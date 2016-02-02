@@ -1,1 +1,1 @@
-./Debug/main.c.o
+./Debug/main.c.o ./Debug/State_Pattern_ATM_All_States.c.o ./Debug/State_Pattern_AtmStateWatch.c.o ./Debug/State_Pattern_ATM.c.o

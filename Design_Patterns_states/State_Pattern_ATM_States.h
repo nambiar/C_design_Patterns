@@ -3,6 +3,7 @@
 
 typedef enum
 {
+ START,//wait for input
  INSERT_CARD,
  PIN_OK,
  DEPOSIT,
@@ -13,11 +14,13 @@ typedef enum
  WITHDRAW_CARD,
  BAD_PIN,
  NO,
- YES
+ YES,
+ STOP
 }atmEvents;
 
 typedef enum
 {
+    STATE_START,
     STATE_A,
     STATE_B,
     STATE_C,
@@ -27,7 +30,8 @@ typedef enum
     STATE_G,
     STATE_H,
     STATE_I,
-    STATE_J
+    STATE_J,
+    STATE_STOP
 }atmStates;
 
 #endif
