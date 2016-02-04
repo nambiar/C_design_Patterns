@@ -25,6 +25,10 @@ static void  defaultStart(ATMstateptr state)
     printf("In");
 }
 
+static void  defaultInsertCard(ATMstateptr state)
+{
+    printf("In");
+}
 /*static void  defaultStart(ATMstateptr);
 static void defaultInsertCard(ATMstateptr);
 static void  defaultPinOk(ATMstateptr);
@@ -48,9 +52,9 @@ static void default(ATMstateptr)
 */
 void defaultImplementation(ATMstateptr state)
 {
-  state->Start = defaultStart;
- /* state->InsertCard = defaultInsertCard;
-  state->PinOk = defaultPinOk;
+  //state->Start = defaultStart;
+   state->InsertCard = defaultInsertCard;
+ /* state->PinOk = defaultPinOk;
   state->Deposit = defaultDeposit;
   state->Withdrawl = defaultWithdrawl;
   state->Account = defaultAccount;

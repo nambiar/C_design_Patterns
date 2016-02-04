@@ -1,4 +1,5 @@
 #include "State_Pattern_ATM_All_States.h"
+#include "State_Pattern_ATM_States.h"
 
 #include <stdio.h>/*
 typedef struct ATMmachineState
@@ -21,6 +22,13 @@ typedef struct ATMmachineState
 static void  Start(ATMstateptr state)
 {
    printf("Inside Start"); 
+   printf("Inside Start Enter which state you want to go");
+   int input_to_next_state;
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == INSERT_CARD)
+   {
+       transitionToSTATE_A(state);
+   }
 }
 static void  InsertCard(ATMstateptr state)
 {
@@ -77,7 +85,7 @@ static void  Stop(ATMstateptr state)
 
 void transitionToSTATE_START(ATMstateptr state)
 {
-    defaultImplementation(state);
+    //defaultImplementation(state);
     state->Start = Start;
     
 }

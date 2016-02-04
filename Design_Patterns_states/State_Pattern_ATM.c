@@ -20,7 +20,9 @@ void DestroyATMmachineContext(ATMptr instance)
 
 void StartATMMachine(ATMptr instance)
 {
-    instance->state.InsertCard(&(instance->state));
+    defaultImplementation(&(instance->state));
+    transitionToSTATE_START(&(instance->state));
+//    instance->state.InsertCard(&(instance->state));
 //    InsertCard(instance->state);
 }
 
