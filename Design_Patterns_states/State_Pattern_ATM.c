@@ -22,8 +22,6 @@ void StartATMMachine(ATMptr instance)
 {
     defaultImplementation(&(instance->state));
     transitionToSTATE_START(&(instance->state));
-//    instance->state.InsertCard(&(instance->state));
-//    InsertCard(instance->state);
 }
 
 void StopATMMachine(ATMptr instance)

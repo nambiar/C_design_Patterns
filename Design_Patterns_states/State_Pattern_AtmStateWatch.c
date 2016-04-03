@@ -1,33 +1,14 @@
 #include "State_Pattern_AtmStateWatch.h"
 #include <stdio.h> 
-/*
-typedef struct ATMmachineState
-{
-  Event_Start Start;
-  Event_InsertCard InsertCard;
-  Event_PinOk PinOk;
-  Event_Deposit Deposit;
-  Event_Withdrawl Withdrawl;
-  Event_Account Account;
-  Event_Amount Amount;
-  Event_InsertEnvelope InsertEnvelope;
-  Event_WithdrawCard WithdrawCard;
-  Event_BadPin BadPin;
-  Event_No No;
-  Event_Yes Yes;
-  Event_Stop Stop;
-}ATMmachine;
-*/
-
 
 static void  defaultStart(ATMstateptr state)
 {
-    printf("In");
+    printf("Inside Default start");
 }
 
 static void  defaultInsertCard(ATMstateptr state)
 {
-    printf("In");
+    printf("Insert Card Default");
 }
 /*static void  defaultStart(ATMstateptr);
 static void defaultInsertCard(ATMstateptr);

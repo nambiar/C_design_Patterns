@@ -25,4 +25,4 @@ void transitionToSTATE_F(ATMstateptr);
 void transitionToSTATE_G(ATMstateptr);
 void transitionToSTATE_H(ATMstateptr);
 void transitionToSTATE_I(ATMstateptr);
-void transitionToSTATE_J(ATMstateptr);
+

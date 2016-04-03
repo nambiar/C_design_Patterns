@@ -1,24 +1,7 @@
 #include "State_Pattern_ATM_All_States.h"
 #include "State_Pattern_ATM_States.h"
 
-#include <stdio.h>/*
-typedef struct ATMmachineState
-{
-  Event_Start Start;
-  Event_InsertCard InsertCard;
-  Event_PinOk PinOk;
-  Event_Deposit Deposit;
-  Event_Withdrawl Withdrawl;
-  Event_Account Account;
-  Event_Amount Amount;
-  Event_InsertEnvelope InsertEnvelope;
-  Event_WithdrawCard WithdrawCard;
-  Event_BadPin BadPin;
-  Event_No No;
-  Event_Yes Yes;
-  Event_Stop Stop;
-}ATMmachine;*/
-//class defaultImplementation;
+#include <stdio.h>
 static void  Start(ATMstateptr state)
 {
    printf("Inside Start"); 
@@ -27,12 +10,15 @@ static void  Start(ATMstateptr state)
    scanf("%d", &input_to_next_state);
    if(input_to_next_state == INSERT_CARD)
    {
+       state->InsertCard(state);
        transitionToSTATE_A(state);
    }
+   
 }
 static void  InsertCard(ATMstateptr state)
 {
-    printf("Inside InsertCard");
+    printf("Inside InsertCard \n");
+
 }
 
 static void  BadPin(ATMstateptr state)
@@ -83,60 +69,150 @@ static void  Stop(ATMstateptr state)
 }
 
 
+
 void transitionToSTATE_START(ATMstateptr state)
 {
-    //defaultImplementation(state);
     state->Start = Start;
+    state->BadPin = BadPin;
+    state->InsertCard = InsertCard;
+    state->Start(state);
     
 }
 
 
 void transitionToSTATE_A(ATMstateptr state)
 {
-    defaultImplementation(state);
-    state->InsertCard = InsertCard;
-    
+    //defaultImplementation(state);
+     state->BadPin = BadPin;
+     state->PinOk = PinOk;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == PIN_OK)
+   {
+       state->PinOk(state);
+       transitionToSTATE_B(state);
+   }
+   if(input_to_next_state == BAD_PIN)
+   {
+       state->BadPin(state);
+       transitionToSTATE_START(state);
+   }
 }
 
 void transitionToSTATE_B(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->Withdrawl = Withdrawl;
+    state->Deposit = Deposit;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
     //change state with condition
+   if(input_to_next_state == WITHDRAWL)
+   {
+       state->Withdrawl(state);
+       transitionToSTATE_C(state);
+   }
+   if(input_to_next_state == DEPOSIT)
+   {
+       state->Deposit(state);
+       transitionToSTATE_G(state);
+   }
 }
 void transitionToSTATE_C(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->Account = Account;
+       int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == ACCOUNT)
+   {
+       state->Account(state);
+       transitionToSTATE_D(state);
+   }
    //change state with condition 
 }
 
 void transitionToSTATE_D(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->Amount = Amount;
+    state->No = No;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+    if(input_to_next_state == AMOUNT)
+   {
+       state->Amount(state);
+       transitionToSTATE_E(state);
+   }
+   if(input_to_next_state == NO)
+   {
+       state->No(state);
+       transitionToSTATE_D(state);
+   }
     //change state 
 }
 void transitionToSTATE_E(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->Yes = Yes;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+    if(input_to_next_state == YES)
+   {
+       state->Yes(state);
+       transitionToSTATE_F(state);
+   }
     //change state 
 }
 void transitionToSTATE_F(ATMstateptr state)
 {
-    state->BadPin = BadPin;
-    //change state 
+    state->WithdrawCard = WithdrawCard;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == WITHDRAW_CARD)
+   {
+       state->WithdrawCard(state);
+       transitionToSTATE_START(state);
+   }
 }
 void transitionToSTATE_G(ATMstateptr state)
 {
-    state->BadPin = BadPin;
-    //change state 
+    state->Account = Account;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == ACCOUNT)
+   {
+       state->Account(state);
+       transitionToSTATE_H(state);
+   } 
 }
 void transitionToSTATE_H(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->InsertEnvelope = InsertEnvelope;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+   if(input_to_next_state == INSERT_ENVELOPE)
+   {
+       state->InsertEnvelope(state);
+       transitionToSTATE_I(state);
+   }
     //change state 
 }
 void transitionToSTATE_I(ATMstateptr state)
 {
-    state->BadPin = BadPin;
+    state->WithdrawCard = WithdrawCard;
+   int input_to_next_state;
+   printf("Enter next state input event");
+   scanf("%d", &input_to_next_state);
+    if(input_to_next_state == WITHDRAW_CARD)
+   {
+       state->WithdrawCard(state);
+       transitionToSTATE_START(state);
+   }
     //change state 
 }
 void transitionToSTATE_J(ATMstateptr state)
@@ -144,7 +220,7 @@ void transitionToSTATE_J(ATMstateptr state)
     state->BadPin = BadPin;
     //change state 
 }
-
+//just implemented in case of each set having to 
 void transitionToSTATE_STOP(ATMstateptr state)
 {
     defaultImplementation(state);
