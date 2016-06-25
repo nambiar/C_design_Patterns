@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="Design_Patterns" Database="">
-  <Project Name="Design_Patterns" Path="Design_Patterns.project" Active="Yes"/>
+  <Project Name="Design_Patterns" Path="Design_Patterns.project" Active="No"/>
+  <Project Name="gui_test" Path="gui_test/gui_test.project"/>
+  <Project Name="timer_wheel" Path="../Timer_Wheel/timer_wheel/timer_wheel.project" Active="Yes"/>
   <BuildMatrix>
-    <WorkspaceConfiguration Name="Debug" Selected="yes">
+    <WorkspaceConfiguration Name="Debug" Selected="no">
       <Project Name="Design_Patterns" ConfigName="Debug"/>
+      <Project Name="gui_test" ConfigName="Debug"/>
+      <Project Name="timer_wheel" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Project Name="Design_Patterns" ConfigName="Release"/>
+      <Project Name="gui_test" ConfigName="Release"/>
+      <Project Name="timer_wheel" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>
