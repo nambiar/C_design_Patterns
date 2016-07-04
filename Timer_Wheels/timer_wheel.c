@@ -101,8 +101,14 @@ void timer_overflow(void)
     	if(temp_index)
     	{
     		slot[current_timer_slot].overflow[index](); 
+    		slot[current_timer_slot].mode &= (0xffff ^ (0x0003 <<2 * index));
+    		//slot[current_timer_slot].overflow[index] = NULL; //optional 
 
     	}
+    }
+    if((handler_index)&&(slot[current_timer_slot].mode == MODE_DEFAULT))
+    {
+    	slot[current_timer_slot].id = 
     }
 
 }
